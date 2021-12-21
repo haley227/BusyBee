@@ -1,0 +1,49 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Add Event
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+<body style="background-color: grey;">
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Add Event</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+    <form (ngSubmit)="submitForm()">
+  <!-- with name set -->
+    <ion-item style="width: 75%; margin: auto; margin-top: 10%;">
+      <ion-label>Event Name:</ion-label>
+      <ion-input type="text" [(ngModel)]="todo.eventName" name="EventName"></ion-input>
+    </ion-item>
+
+    <ion-item style="width: 75%; margin: auto;">
+      <ion-label>Event Date:</ion-label>
+      <ion-input type="date" [(ngModel)]="todo.eventDate" name="date"></ion-input>
+    </ion-item>
+
+    <ion-item style="width: 75%; margin: auto;">
+      <ion-label class="checkbox">Recurring?</ion-label>
+      <ion-checkbox [(ngModel)]="todo.recurring" id="recurringCheck" name="recurring" value="1" (ionChange)="showRecurrence($event)"></ion-checkbox>
+    </ion-item>
+
+    <ion-item id="recurrence" style="width: 75%; margin: auto;">
+      <ion-label class="checkbox">Frequency</ion-label>
+      <ion-select [(ngModel)]="todo.recurrence" name="recurrence" value="{recurrence}" >
+        <ion-select-option value="annual">Annual</ion-select-option>
+        <ion-select-option value="monthly">Monthly</ion-select-option>
+        <ion-select-option value="daily">Daily</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-button type="submit"
+      style="width: 50%; margin: auto; margin-top: 5%;"
+      color="primary" 
+      expand="block" >Add Event</ion-button>
+    </form>
+</ion-content>
+
+</body>
